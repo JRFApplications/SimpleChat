@@ -10,31 +10,43 @@
 
     <TextView
         android:id="@+id/logout"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Log Out"
         android:textAlignment="center"
-        tools:layout_editor_absoluteY="116dp"
-        tools:layout_editor_absoluteX="16dp" />
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
         android:id="@+id/welcomeMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Details Here"
+        android:text="Name Here"
         android:textAlignment="viewStart"
         android:textSize="30sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="131dp" />
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        app:layout_constraintLeft_toRightOf="@+id/profileImage"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="1.0" />
 
     <ImageView
         android:id="@+id/profileImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        tools:layout_editor_absoluteY="16dp"
-        tools:layout_editor_absoluteX="16dp" />
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/emailText"
@@ -42,17 +54,26 @@
         android:layout_height="wrap_content"
         android:text="Email"
         android:textAlignment="viewEnd"
-        tools:layout_editor_absoluteY="60dp"
-        tools:layout_editor_absoluteX="334dp" />
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMsg" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="Bio"
         android:inputType="textMultiLine"
-        android:singleLine="false"
-        tools:layout_editor_absoluteY="159dp"
-        tools:layout_editor_absoluteX="16dp" />
+        android:textSize="14sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/profileImage"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="43dp"
+        app:layout_constraintBottom_toTopOf="@+id/logout"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/emailText" />
 </android.support.constraint.ConstraintLayout>
