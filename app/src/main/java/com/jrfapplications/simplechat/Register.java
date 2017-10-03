@@ -109,7 +109,7 @@ public class Register extends AppCompatActivity {
                                                         public void onComplete(@NonNull Task<Void> task) {
                                                             if (task.isSuccessful())
                                                             {
-                                                                myRef.child("Users").setValue(user.getUid());
+                                                                myRef.child("Users").child(user.getUid()).setValue(displayName);
                                                                 progress.dismiss();
                                                                 Toast.makeText(Register.this, "Registered", Toast.LENGTH_SHORT).show();
                                                                 finish();
