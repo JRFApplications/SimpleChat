@@ -3,10 +3,9 @@ package com.jrfapplications.simplechat;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.preference.PreferenceManager;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +19,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -33,6 +34,8 @@ public class Register extends AppCompatActivity {
     Uri userImage;
     Uri uploadedImage;
     StorageReference storage;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
 
 
     FirebaseAuth auth;
@@ -51,6 +54,8 @@ public class Register extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         storage = FirebaseStorage.getInstance().getReference();
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference();
 
         uploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +109,7 @@ public class Register extends AppCompatActivity {
                                                         public void onComplete(@NonNull Task<Void> task) {
                                                             if (task.isSuccessful())
                                                             {
+                                                                myRef.child("Users").setValue(user.getUid());
                                                                 progress.dismiss();
                                                                 Toast.makeText(Register.this, "Registered", Toast.LENGTH_SHORT).show();
                                                                 finish();
